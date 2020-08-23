@@ -121,4 +121,6 @@ Post.findByAuthorId = function (authorId) {
   ]);
 };
 
+Post.update = function () {};
+
 module.exports = Post;
