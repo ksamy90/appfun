@@ -35,7 +35,7 @@ export default class Search {
       this.showLoaderIcon();
       this.typingWaitTimer = setTimeout(() => {
         this.sendRequest();
-      }, 7000);
+      }, 3000);
     }
     this.previousValue = value;
   }
@@ -43,8 +43,12 @@ export default class Search {
   sendRequest() {
     axios
       .post("/search", { searchTerm: this.inputField.value })
-      .then(() => {})
-      .catch(() => {});
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch(() => {
+        alert("request failed.");
+      });
   }
 
   showLoaderIcon() {
