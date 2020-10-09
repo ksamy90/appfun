@@ -96,3 +96,15 @@ exports.search = function (req, res) {
       res.json([]);
     });
 };
+
+exports.apiCreate = function (req, res) {
+  let post = new Post(req.body, req.apiUser._id);
+  post
+    .create()
+    .then(function (newId) {
+      res.json("Congrats.");
+    })
+    .catch(function (err) {
+      res.json(err);
+    });
+};
